@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+</head>
+<body>
+    <div >
+        <form class="wheatherForm">
+            <label for="" class="city-name">Enter the city name</label>
+            <input type="text" >
+            <button class="submit-btn">
+                Show wheather
+            </button>
+        </form>
+        <div class="container">
+            <p > <strong>Temparture</strong> <span class="temparture"></span> </p>
+            <p > <strong>description</strong> <span class="description"></span> </p>
+            <p > <strong>humidity</strong> <span class="humidity"></span> </p>
+        </div>
+    </div>
+
+
+    <script>
+        const wheatherForm = document.getElementById("wheatherForm")
+        const cityName = document.getElementById("city-name")
+        const temparature =document.getElementById("temperature")
+        const description = document.getElementById("description")
+        const humidity = document.getElementById("humidity")
+        // const submitBtn = document.getElementById("submit-btn")
+
+        wheatherForm.addEventListener('click',function(event) {
+            event.preventDefault()
+        })
+
+        $.ajax({
+            url:"",
+            method:"GET",
+            success: function(data){
+                const [main, wheather] = data
+
+                temparature.textContent= `${main.temparature} C degree`
+                // humidity,.textContent= 
+                // humidity,.textContent= 
+                
+            },
+            error: function(){
+                alert("Fetching fail from the wheather api please try again later")
+            }
+
+            
+        })
+    </script>
+</body>
+</html>

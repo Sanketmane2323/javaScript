@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Random Quote Generator</h1>
+        <div id="quote-container">
+            <p id="quote-text">Click the button to get a random quote.</p>
+            <p id="quote-author">Click the button to get a random quote.</p>
+        </div>
+        <button id="get-quote-button">Get Quote</button>
+    </div>
+    <script>
+        const quoteContainer = document.getElementById('quote-container');
+        const quoteText = document.getElementById('quote-text');
+        const quoteAuthor = document.getElementById('quote-author');
+        const getQuoteButton = document.getElementById('get-quote-button');
+
+        //fuction to fetch and generate the random quote
+        var category = 'happiness'
+        function getRandomQuote() {
+            $.ajax({
+                method: 'GET',
+                url: 'https://api.api-ninjas.com/v1/quotes?category=' + category,
+                success:function(data){
+                    const {Quote,Author}= data;
+                    quoteText.textContent = `${Quote}`
+                    quoteAuthor.textContent= `${Author}`
+                },
+                error: function (){
+                    alert ("Quote is not fetch from the api.Please try again later")
+                }
+            })
+
+            getQuoteButton.addEventListener('click',getRandomQuote)
+        }
+    </script>
+</body>
+
+</html>
