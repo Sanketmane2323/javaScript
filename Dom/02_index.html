@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a new element with dom</title>
+</head>
+<body style="background-color: rgb(45, 39, 31);">
+    <div class="Parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thrusday</div>
+    </div>
+</body>
+<script>
+    const heading = document.createElement("h1")
+    console.log(heading)
+    heading.className="main_heading"
+    heading.setAttribute("title","generated")
+    heading.style.backgroundColor="Green"
+    // heading.innerText="Sanket"
+    const textNode = document.createTextNode("Sanket Mane")
+    heading.appendChild(textNode)
+    document.body.appendChild(heading)
+</script>
+</html>
